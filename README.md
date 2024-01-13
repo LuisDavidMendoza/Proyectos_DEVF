@@ -1,10 +1,10 @@
-# Proyectos_DEVF
+# Proyectos DEVF
 
-Las carpetas van por modulos. Cada carpeta contiene los ejercicios que corresponde al modulo.
+Las carpetas van por módulos. Cada carpeta contiene los ejercicios que corresponde al módulo.
 
 Algunos ejercicios estarán en carpetas según requiera la gestión del ejercicio para que funcione.
 
-Este index tendrá la ruta para cada modulo y/o ejercicio. Se actualizará el index conforme se vaya terminando los ejercicios.
+Este index tendrá la ruta para cada módulo y/o ejercicio. Se actualizará el index conforme se vaya terminando los ejercicios.
 
 
 ## 1.- [Intro a la web](https://github.com/LuisDavidMendoza/Proyectos_DEVF/tree/main/Modulo%201%20Intro%20a%20la%20Web)

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button class="mostrar" data-name="question">Ver Pregunta</button>
+    <button class="mostrar" data-name="numberDivision">Número divisible</button>
+    <button data-name="promptAlert" onclick="promptAlert()">Número Par</button>
+    <button class="mostrar" data-name="numberWin">Número ganador</button>
+    <button class="mostrar" data-name="numberMin">Número minimo</button>
+    <button class="mostrar" data-name="numberMax">Número máximo</button>
+
+    <div class="popup">
+        <div class="shadow"></div>
+        <div class="popup-content">
+            <div class="content" data-name="question">
+                <label>¿Eres bellísimo/a?</label>
+                <div class="answer-buttons">
+                    <div class="answer-button" data-name="yes">Sí</div>
+                    <div class="answer-button" data-name="no">No</div>
+                </div>
+                <div class="answer-popup">
+                    <h2 class="message" data-name="yes">Ciertamente</h2>
+                    <h2 class="message" data-name="no">No te creo</h2>
+                </div>
+            </div>
+            <div class="content" data-name="numberDivision">
+                <label>Ingresa un número divisible entre 2</label>
+                <input class="inputNumber" type="text">
+                <div class="answer-button" data-name="proveNumber">Comprobando</div>
+                <div class="answer-popup">
+                </div>
+            </div>
+            <div class="content" data-name="numberWin">
+                <label>Ingresa un número</label>
+                <input class="inputNumber" type="text">
+                <div class="answer-button" data-name="proveNumberWin">Comprobando</div>
+                <div class="answer-popup">
+                </div>
+            </div>
+            <div class="content" data-name="numberMin">
+                <label>Ingresa un número</label>
+                <input class="inputNumber" type="text">
+                <input class="inputNumber" type="text">
+                <div class="answer-button" data-name="proveNumberMaxMin">Número mínimo</div>
+                <div class="answer-popup">
+                </div>
+            </div>
+            <div class="content" data-name="numberMax">
+                <label>Ingresa un número</label>
+                <input class="inputNumber" type="text">
+                <input class="inputNumber" type="text">
+                <input class="inputNumber" type="text">
+                <div class="answer-button" data-name="proveNumberMaxMin">Número máximo</div>
+                <div class="answer-popup">
+                </div>
+            </div>
+
+
+            <button class="cerrar">Cerrar</button>
+        </div>
+    </div>
+</body>
+<script src="./js/main.js" defer></script>
+
+</html>

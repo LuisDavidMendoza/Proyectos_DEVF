@@ -79,16 +79,45 @@ document.addEventListener('click', (event) => {
                 numberMaxMin.push(numb)
             }
         })
-        if (numberRepeat === undefined) {
-            if (number.length === 2) {
+        if (number.length === 2) {
+            if (numberRepeat !== undefined) {
+            } else {
                 answerNumber = Math.min(...numberMaxMin)
-                answerNumberMaxMin += `<h2 class="message active">Este es el número menor ${answerNumber}</h2>`;
+                answerNumberMaxMin += `<h2 class="message active">Número menor ${answerNumber}</h2>`;
             }
-        } else if (number.length === 3) {
+        }
+        else if (number.length === 3) {
             answerNumber = Math.max(...numberMaxMin)
-            answerNumberMaxMin += `<h2 class="message active">Este es el número máximo ${answerNumber} y el número que se repite es ${numberRepeat}</h2>`;
+            answerNumberMaxMin += `<h2 class="message active">Número máximo ${answerNumber}</h2>`;
+            if (numberRepeat !== undefined) {
+                answerNumberMaxMin += `<h2 class="message active">Número repetitivo ${numberRepeat}</h2>`;
+            }
         }
         answer.innerHTML = answerNumberMaxMin;
+    }
+
+    messageDay = (answer, content) => {
+        let day = content.querySelector('.inputDay')
+        let messageDay = ''
+        day = day.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        switch (day) {
+            case 'lunes':
+                messageDay += `<h2 class="message active">Lunes! <br> Principio de semana? <br> No voy a trabajar!</h2>`;
+            break;
+            case 'viernes':
+                messageDay += `<h2 class="message active">Viernes! <br> Que muere jesucristo! <br> Donde se ha visto? <br> No voy a trabajar!</h2>`;
+            break;
+            case 'sabado':
+                messageDay += `<h2 class="message active">Sábado! <br> Trabajo medio día <br> Por medio día <br> No voy a trabajar!</h2>`;
+            break;
+            case 'domingo':
+                messageDay += `<h2 class="message active">Domingo! <br> Día de descanso <br> Bien merecido <br> No voy a trabajar!</h2>`;
+            break;
+            default: 
+            messageDay += `<h2 class="message active">No voy a trabajar!</h2>`;
+        }
+        answer.innerHTML = messageDay;
+
     }
 
     if (mostrar) {
@@ -107,6 +136,8 @@ document.addEventListener('click', (event) => {
         const popUp = document.querySelector('.popup')
         const number = document.querySelector('.inputNumber')
         const numbers = document.querySelectorAll('.inputNumber')
+        const day = content.querySelector('.inputDay')
+
         content.classList.remove('active')
         answer.classList.remove('active')
         shadow.classList.remove('active')
@@ -115,6 +146,7 @@ document.addEventListener('click', (event) => {
         numbers.forEach(n => {
             n.value = ''
         });
+        day.value = ''
     }
     if (btnAnswer) {
         const content = btnAnswer.closest('.content')
@@ -131,6 +163,9 @@ document.addEventListener('click', (event) => {
         }
         else if (name === 'proveNumberMaxMin') {
             proveNumberMaxMin(answer, content)
+        }
+        else if (name === 'messageDay') {
+            messageDay(answer, content)
         }
         else {
             checkAnswer(selMessage, message)

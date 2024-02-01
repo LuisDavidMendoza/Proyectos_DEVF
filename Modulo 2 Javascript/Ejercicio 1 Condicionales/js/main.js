@@ -139,6 +139,28 @@ document.addEventListener('click', (event) => {
         answer.innerHTML = messageQualification
     }
 
+    selectTopping = (answer, content) => {
+        let topping = content.querySelector('.inputTopping')
+        let messageTopping = ''
+        topping = topping.value.toLowerCase()
+        switch (topping){
+            case 'oreo':
+                messageTopping += `<h2 class="message active">Total a pagar: $60</h2>`
+            break;
+            case 'kitkat':
+                messageTopping += `<h2 class="message active">Total a pagar: $65</h2>`
+            break;
+            case 'brownie':
+                messageTopping += `<h2 class="message active">Total a pagar: $70</h2>`
+            break;
+            default:
+                messageTopping += `<h2 class="message active">No tenemos este topping, lo sentimos.</h2>`
+                messageTopping += `<h2 class="message active">Total a pagar: $50</h2>`
+        }
+        
+        answer.innerHTML = messageTopping
+    }
+
     if (mostrar) {
         const name = mostrar.getAttribute('data-name')
         const content = document.querySelector(`.content[data-name="${name}"]`)
@@ -188,6 +210,9 @@ document.addEventListener('click', (event) => {
         }
         else if (name === 'qualification') {
             proveQualification(answer, content)
+        }
+        else if (name === 'topping') {
+            selectTopping(answer, content)
         }
         else {
             checkAnswer(selMessage, message)

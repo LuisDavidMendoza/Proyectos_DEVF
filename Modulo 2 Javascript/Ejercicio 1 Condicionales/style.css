@@ -65,4 +65,11 @@
 .message.active{
     display: block;
 }
-
+table{
+  border: 1px solid;
+  border-collapse: collapse;
+}
+table td{
+  padding: 5px;
+  border: 1px solid;
+}

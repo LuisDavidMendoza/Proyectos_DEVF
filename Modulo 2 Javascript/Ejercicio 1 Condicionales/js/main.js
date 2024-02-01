@@ -120,6 +120,25 @@ document.addEventListener('click', (event) => {
 
     }
 
+    proveQualification = (answer, content) => {
+        const number = content.querySelector('.inputNumber')
+        let numberConvert = Number(number.value)
+        let messageQualification = ''
+
+        if(numberConvert < 1 || numberConvert > 10){
+            messageQualification += `<h2 class="message active">Error, no va con el rango de calificación</h2>`;
+        }else if(numberConvert < 6){
+            messageQualification += `<h2 class="message active">Reprobado</h2>`;
+        }else if(numberConvert >= 6 && numberConvert <= 8){
+            messageQualification += `<h2 class="message active">Regular</h2>`;
+        }else if(numberConvert === 9){
+            messageQualification += `<h2 class="message active">Bien</h2>`;
+        }else if(numberConvert === 10){
+            messageQualification += `<h2 class="message active">Excelente</h2>`;
+        }
+        answer.innerHTML = messageQualification
+    }
+
     if (mostrar) {
         const name = mostrar.getAttribute('data-name')
         const content = document.querySelector(`.content[data-name="${name}"]`)
@@ -166,6 +185,9 @@ document.addEventListener('click', (event) => {
         }
         else if (name === 'messageDay') {
             messageDay(answer, content)
+        }
+        else if (name === 'qualification') {
+            proveQualification(answer, content)
         }
         else {
             checkAnswer(selMessage, message)

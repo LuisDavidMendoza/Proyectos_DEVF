@@ -9,15 +9,19 @@
 </head>
 
 <body>
-    <button class="mostrar" data-name="question">Ver Pregunta</button>
-    <button class="mostrar" data-name="numberDivision">Número divisible</button>
-    <button data-name="promptAlert" onclick="promptAlert()">Número Par</button>
-    <button class="mostrar" data-name="numberWin">Número ganador</button>
-    <button class="mostrar" data-name="numberMin">Número minimo</button>
-    <button class="mostrar" data-name="numberMax">Número máximo</button>
-    <button class="mostrar" data-name="weekend">Días de la semana</button>
-    <button class="mostrar" data-name="qualification">Calificación</button>
-    <button class="mostrar" data-name="topping">Helados</button>
+    <div class="allButtons">
+        <button class="mostrar" data-name="question">Ver Pregunta</button>
+        <button class="mostrar" data-name="numberDivision">Número divisible</button>
+        <button data-name="promptAlert" onclick="promptAlert()">Número Par</button>
+        <button class="mostrar" data-name="numberWin">Número ganador</button>
+        <button class="mostrar" data-name="numberMin">Número mínimo</button>
+        <button class="mostrar" data-name="numberMax">Número máximo</button>
+        <button class="mostrar" data-name="weekend">Días de la semana</button>
+        <button class="mostrar" data-name="qualification">Calificación</button>
+        <button class="mostrar" data-name="topping">Helados</button>
+        <button class="mostrar" data-name="career">Escuela</button>
+        <button class="mostrar" data-name="calculateGas">Gasolina</button>
+    </div>
 
     <div class="popup">
         <div class="shadow"></div>
@@ -112,8 +116,59 @@
                 <div class="answer-popup">
                 </div>
             </div>
-
-
+            <div class="content" data-name="career">
+                <table data-name="course">
+                    <thead>
+                        <th>Carrera</th>
+                        <th>Precio</th>
+                        <th>Duración (Meses)</th>
+                    </thead>
+                    <tbody>
+                        <tr data-name="course" class="table-content">
+                            <td>Course:</td>
+                            <td>$4,999 MXN</td>
+                            <td>2</td>
+                        </tr>
+                        <tr data-name="course" class="table-content">
+                            <td>Carrera:</td>
+                            <td>$3,999 MXN</td>
+                            <td>6</td>
+                        </tr>
+                        <tr data-name="course" class="table-content">
+                            <td>Master:</td>
+                            <td>$2,999 MXN</td>
+                            <td>12</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <label>¿Cuentas con alguna beca?</label>
+                <div class="answer-buttons">
+                    <div class="answer-button" data-name="career-yes">Sí</div>
+                    <div class="answer-button" data-name="career-no">No</div>
+                </div>
+                <select data-name="career-yes" name="discount" class="discount career">
+                    <option value=".20">Facebook</option>
+                    <option value=".15">Google</option>
+                    <option value=".50">Jesua</option>
+                </select>
+                <div class="answer-button career" data-name="career-yes">Calcular Costo</div>
+                <div class="answer-popup">
+                </div>
+            </div>
+            <div class="content" data-name="calculateGas">
+                <label>Selecciona el medio de transporte</label>
+                <select name="transport" class="transport">
+                    <option value=".20">Coche</option>
+                    <option value=".10">Moto</option>
+                    <option value=".50">Autobús</option>
+                </select>
+                <label>Ingresa el kilometraje recorrido</label>
+                <input class="inputNumber" value="0" type="text">
+                
+                <div class="answer-button" data-name="calculateGas">Calcular Costo</div>
+                <div class="answer-popup">
+                </div>
+            </div>
             <button class="cerrar">Cerrar</button>
         </div>
     </div>

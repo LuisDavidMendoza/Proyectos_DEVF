@@ -38,7 +38,6 @@ document.addEventListener('click', (event) => {
     const shadow = event.target.closest('.shadow')
     const career = event.target.closest('table')
 
-
     checkAnswer = (selMessage, message) => {
         if (selMessage) {
             selMessage.classList.remove('active')
@@ -69,7 +68,6 @@ document.addEventListener('click', (event) => {
         }
         answer.innerHTML = totalNumberDivisible;
     }
-
     proveNumberWin = (answer, content) => {
         const number = content.querySelector('.inputNumber')
         let numberWin = ''
@@ -80,7 +78,6 @@ document.addEventListener('click', (event) => {
         }
         answer.innerHTML = numberWin;
     }
-
     proveNumberMaxMin = (answer, content) => {
         const number = content.querySelectorAll('.inputNumber')
         let numberMaxMin = []
@@ -113,7 +110,6 @@ document.addEventListener('click', (event) => {
         }
         answer.innerHTML = answerNumberMaxMin;
     }
-
     messageDay = (answer, content) => {
         let day = content.querySelector('.inputDay')
         let messageDay = ''
@@ -137,7 +133,6 @@ document.addEventListener('click', (event) => {
         answer.innerHTML = messageDay;
 
     }
-
     proveQualification = (answer, content) => {
         const number = content.querySelector('.inputNumber')
         let numberConvert = Number(number.value)
@@ -156,7 +151,6 @@ document.addEventListener('click', (event) => {
         }
         answer.innerHTML = messageQualification
     }
-
     selectTopping = (answer, content) => {
         let topping = content.querySelector('.inputTopping')
         let messageTopping = ''
@@ -313,8 +307,6 @@ document.addEventListener('click', (event) => {
             checkAnswer(selMessage, message)
         }
     }
-
-
     if (career) {
         const name = career.getAttribute('data-name')
         const selectRow = event.target.closest(`[data-name="${name}"].table-content`)

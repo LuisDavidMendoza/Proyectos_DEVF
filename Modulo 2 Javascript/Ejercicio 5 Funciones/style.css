@@ -1,0 +1,42 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.semaforo {
+    width: 50px;
+    height: 150px;
+    background-color: #333;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+}
+.luz {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+.rojo {
+    background-color: #f00;
+}
+.amarillo {
+    background-color: #ff0;
+}
+.verde {
+    background-color: #0f0;
+}
+.encendido{
+    opacity: 1;
+}
+@keyframes parpadeo {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+.parpadeo {
+    animation: parpadeo 0.5s infinite;
+}

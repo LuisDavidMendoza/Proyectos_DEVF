@@ -185,11 +185,11 @@ document.addEventListener('click', (event) => {
         if (info.length === 0) {
             calculateCareer += '<h2 class="message active">Selecciona un curso </h2>'
         } else if (name === 'career-no') {
-                calculateCareer += `<div class="message active">
+            calculateCareer += `<div class="message active">
                                         <h4>${info[0]}</h4>
-                                        <h4>$${Number(info[1]).toFixed(0).replace(formatPrice,'$1,')}</h4>
+                                        <h4>$${Number(info[1]).toFixed(0).replace(formatPrice, '$1,')}</h4>
                                         <h4>${info[2]} meses</h4>
-                                        <h4>Total $${total.toFixed(2).replace(formatPrice,'$1,')}</h4>
+                                        <h4>Total $${total.toFixed(2).replace(formatPrice, '$1,')}</h4>
                                         </div>\n`
         } else if (name === 'career-yes') {
             if (btnCalculate || discount) {
@@ -200,10 +200,10 @@ document.addEventListener('click', (event) => {
                 if (event.target === btnCalculate) {
                     calculateCareer += `<div class="message active">
                                     <h4>${info[0]}</h4>
-                                    <h4>$${Number(info[1]).toFixed(0).replace(formatPrice,'$1,')}</h4>
+                                    <h4>$${Number(info[1]).toFixed(0).replace(formatPrice, '$1,')}</h4>
                                     <h4>${info[2]} meses</h4>
-                                    <h4>$${parseFloat(discountMonth.toFixed(2).replace(formatPrice,'$1,'))} de descuento al mes</h4>
-                                    <h4>Total $${totalDiscount.toFixed(2).replace(formatPrice,'$1,')}</h4>
+                                    <h4>$${parseFloat(discountMonth.toFixed(2).replace(formatPrice, '$1,'))} de descuento al mes</h4>
+                                    <h4>Total $${totalDiscount.toFixed(2).replace(formatPrice, '$1,')}</h4>
                                     </div>\n`
                 }
             }
@@ -212,26 +212,26 @@ document.addEventListener('click', (event) => {
     }
     calculateGas = (answer, content) => {
         let number = content.querySelector('.inputNumber'),
-        transport = content.querySelector('.transport'),
-        calculateGas = '',
-        extra,
-        formatPrice = /(\d)(?=(\d{3})+(?!\d))/g
+            transport = content.querySelector('.transport'),
+            calculateGas = '',
+            extra,
+            formatPrice = /(\d)(?=(\d{3})+(?!\d))/g
 
         number = Number(number.value)
         transport = Number(transport.value)
 
-        total = (transport, number, extra) =>{
-            total = (transport *  number) + extra
+        total = (transport, number, extra) => {
+            total = (transport * number) + extra
             return total
         }
-        if(number > 0 || number <= 100){
+        if (number > 0 || number <= 100) {
             extra = 5
             total(transport, number, extra)
-            calculateGas += `<h2 class="message active">Total a pagar: $${total.toFixed(2).replace(formatPrice,'$1,')}</h2>`
-        } else if(number > 100){
+            calculateGas += `<h2 class="message active">Total a pagar: $${total.toFixed(2).replace(formatPrice, '$1,')}</h2>`
+        } else if (number > 100) {
             extra = 10
             total(transport, number, extra)
-            calculateGas += `<h2 class="message active">Total a pagar: $${total.toFixed(2).replace(formatPrice,'$1,')}</h2>`
+            calculateGas += `<h2 class="message active">Total a pagar: $${total.toFixed(2).replace(formatPrice, '$1,')}</h2>`
         }
         answer.innerHTML = calculateGas
     }
@@ -311,6 +311,8 @@ document.addEventListener('click', (event) => {
         const name = career.getAttribute('data-name')
         const selectRow = event.target.closest(`[data-name="${name}"].table-content`)
         const rows = career.querySelector(`[data-name="${name}"].table-content.select`)
-        selectOption(rows, selectRow)
+        if (selectRow) {
+            selectOption(rows, selectRow)
+        }
     }
 })

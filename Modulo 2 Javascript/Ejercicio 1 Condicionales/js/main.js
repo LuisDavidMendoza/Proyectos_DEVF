@@ -1,5 +1,3 @@
-const ventanaEmergente = document.querySelectorAll('.message')
-const numberDivisible = document.querySelector('.message')
 const excercises = document.querySelectorAll('.content');
 const btnCalculate = document.querySelector('.answer-button.career')
 const discount = document.querySelector('.discount.career')

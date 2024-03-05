@@ -6,7 +6,6 @@ document.addEventListener('click', event => {
     impar = () => {
         let i = 1
         for (i; i <= 50; i++) {
-            // console.log('Número Impar: ', i)
             if (i % 2) {
                 console.log('Número Impar: ', i, i % 2)
             }
@@ -127,7 +126,6 @@ document.addEventListener('click', event => {
     }
     typeNumber = () => {
         let whatIs = [4, "dos", 8, "tres", 5, 9, 1, "cero"]
-        let answer = []
         let i = 0
         for (i; i < whatIs.length; i++) {
             if (Number(whatIs[i])) {

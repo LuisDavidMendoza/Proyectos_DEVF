@@ -22,3 +22,4 @@ Este index tendrá la ruta para cada módulo y/o ejercicio. Se actualizará el i
 ### 2.3.- [Ejercicio 3: Estructuras de control: While](https://github.com/LuisDavidMendoza/Proyectos_DEVF/tree/main/Modulo%202%20Javascript/Ejercicio%203%20While)
 ### 2.4.- [Ejercicio 4: Estructuras de control: For](https://github.com/LuisDavidMendoza/Proyectos_DEVF/tree/main/Modulo%202%20Javascript/Ejercicio%204%20For)
 ### 2.5.- [Ejercicio 5: Funciones](https://github.com/LuisDavidMendoza/Proyectos_DEVF/tree/main/Modulo%202%20Javascript/Ejercicio%205%20Funciones)
+### 2.6.- [Ejercicio 6: HTML + CSS + DOM](https://github.com/LuisDavidMendoza/Proyectos_DEVF/tree/main/Modulo%202%20Javascript/Ejercicio%206%20HTML%20%2B%20CSS%20%2B%20DOM)

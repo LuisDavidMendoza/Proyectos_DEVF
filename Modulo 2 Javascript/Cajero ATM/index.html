@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajero ATM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="users">
+        <h1>Selecciona un usuario:</h1>
+        <div class="namesUsers"></div>
+    </div>
+    <div class="popup">
+        <div class="shadow"></div>
+        <div class="popup-content">
+            <div class="content" data-name="boxOptions">
+                <div class="btn bank" data-name="query">Consultar Saldo</div>
+                <div class="btn bank" data-name="add">Depositar</div>
+                <div class="btn bank" data-name="rest">Retirar</div>
+            </div>
+            <div class="content" data-name="query">
+                <div class="pop-answer"></div>
+            </div>
+            <div class="content" data-name="add">
+                <div class="action">
+                    <h1>Depositar</h1>
+                    <input type="number" class="inputNumber" min="0" value="0">
+                    <div class="btn answer" data-name="addMoney">Depositar</div>
+                </div>
+                <div class="pop-answer"></div>
+            </div>
+            <div class="content" data-name="rest">
+                <div class="action">
+                    <h1>Retirar</h1>
+                    <input type="number" class="inputNumber" min="0" value="0">
+                    <div class="btn answer" data-name="restMoney">Retirar</div>
+                </div>
+                <div class="pop-answer"></div>
+            </div>
+            <div class="btn cancel">Cancelar</div>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>

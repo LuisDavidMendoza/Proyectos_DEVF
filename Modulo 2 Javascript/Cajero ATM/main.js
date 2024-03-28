@@ -17,7 +17,6 @@ document.addEventListener('click', (e) => {
   const shadow = e.target.closest('.shadow')
   const cancel = e.target.closest('.cancel')
 
-
   querySaldo = (saldoActual, answer) => {
     let query = ''
     query = `<div>${saldoActual}</div>`
@@ -25,17 +24,17 @@ document.addEventListener('click', (e) => {
     answer.innerHTML = query
   }
   sumSaldo = (saldoActual, answer, content) => {
-    const saldoNuevo = content.querySelector('.inputNumber')
+    const saldoNuevo = Number(content.querySelector('.inputNumber').value)
     let saldoTotal = ''
-    const total = saldoActual
-    if(Number(saldoNuevo.value) === 0){
+    const total = saldoActual.saldo
+    if(saldoNuevo === 0){
       saldoTotal = `<h2>Ingresa un monto<h2>`
     } else{
-      saldoActual.push(saldoActual += Number(saldoNuevo.value))
+      saldoActual.saldo += saldoNuevo
       saldoTotal = `<h2>Saldo Anterior<h2>
                       <h3>${total}</h3>
                       <h2>Saldo Actual<h2>
-                      <h3>${saldoActual}</h3>`
+                      <h3>${saldoActual.saldo}</h3>`
     }
     answer.classList.add('active')
     answer.innerHTML = saldoTotal
@@ -87,7 +86,7 @@ document.addEventListener('click', (e) => {
             if (btn) {
               if (name === 'addMoney') {
                 action ? action.classList.remove('active') : ''
-                sumSaldo(userSelect.saldo, answer, contentPop)
+                sumSaldo(userSelect, answer, contentPop)
               } else if (name === 'restMoney') {
                 action ? action.classList.remove('active') : ''
                 restSaldo(userSelect.saldo, answer, contentPop)

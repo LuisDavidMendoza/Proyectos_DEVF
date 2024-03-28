@@ -3,6 +3,8 @@ let cuentas = [
   { name: 'Gera', saldo: 290 },
   { name: 'Maui', saldo: 67 }
 ]
+let userSelect = ''
+
 const showUsers = () => {
   let nameUsers = ''
   cuentas.forEach(user => {
@@ -16,99 +18,66 @@ document.addEventListener('click', (e) => {
   const selectUsers = e.target.closest('.btn.user')
   const shadow = e.target.closest('.shadow')
   const cancel = e.target.closest('.cancel')
+  const selectAction = e.target.closest('.btn.bank')
+  const btnsAnswers = e.target.closest('.btn.answer')
+
 
   querySaldo = (saldoActual, answer) => {
     let query = ''
-    query = `<div>${saldoActual}</div>`
+    query = `<h1>${saldoActual}</h1>`
     answer.classList.add('active')
     answer.innerHTML = query
   }
   sumSaldo = (saldoActual, answer, content) => {
+    const action = content.querySelector('.action.active')
     const saldoNuevo = Number(content.querySelector('.inputNumber').value)
     let saldoTotal = ''
     const total = saldoActual.saldo
-    if(saldoNuevo === 0){
+    if (saldoNuevo === 0) {
       saldoTotal = `<h2>Ingresa un monto<h2>`
-    } else{
+    } else {
       saldoActual.saldo += saldoNuevo
       saldoTotal = `<h2>Saldo Anterior<h2>
                       <h3>${total}</h3>
                       <h2>Saldo Actual<h2>
                       <h3>${saldoActual.saldo}</h3>`
     }
+    action.classList.remove('active')
+    content.classList.add('active')
     answer.classList.add('active')
     answer.innerHTML = saldoTotal
   }
   restSaldo = (saldoActual, answer, content) => {
-    const saldoNuevo = content.querySelector('.inputNumber')
+    const action = content.querySelector('.action.active')
+    const saldoNuevo = Number(content.querySelector('.inputNumber').value)
     let saldoTotal = ''
-    const total = saldoActual
-    if (saldoActual === 0) {
+    const total = saldoActual.saldo
+    if (saldoActual.saldo === 0) {
       saldoTotal = `<h3>Saldo insuficiente</h3>`
     } else {
-      saldoActual -= Number(saldoNuevo.value)
+      saldoActual.saldo -= saldoNuevo
       saldoTotal = `<h1>Saldo Anterior<h1>
                     <h3>${total}</h3>
                     <h1>Saldo Actual<h1>
-                    <h3>${saldoActual}</h3>`
+                    <h3>${saldoActual.saldo}</h3>`
     }
+    action.classList.remove('active')
+    content.classList.add('active')
     answer.classList.add('active')
     answer.innerHTML = saldoTotal
   }
-
   if (selectUsers) {
     const popUp = document.querySelector('.popup')
     const shadow = document.querySelector('.shadow')
     const name = selectUsers.getAttribute('data-name')
     const content = document.querySelector(`.content[data-name="${name}"]`)
     const nameUser = selectUsers.getAttribute('data-user')
-    const selectAction = document.querySelectorAll('.btn.bank')
-    const btnsAnswers = document.querySelectorAll('.btn.answer')
 
-    const userSelect = cuentas.find(({ name }) => name === nameUser)
+    userSelect = cuentas.find(({ name }) => name === nameUser)
 
     shadow.classList.add('active')
     popUp.classList.add('active')
     content.classList.add('active')
-
-    selectAction.forEach(btnPopup => {
-      btnPopup.addEventListener('click', (e) => {
-        const select = e.target.closest('.btn.bank')
-        const name = select.getAttribute('data-name')
-        const contentPop = document.querySelector(`.content[data-name="${name}"]`)
-        const action = contentPop.querySelector('.action')
-        const answer = contentPop.querySelector('.pop-answer')
-
-        btnsAnswers.forEach(btnAnswer => {
-          btnAnswer.addEventListener('click', e => {
-            const btn = e.target.closest('.btn.answer')
-            const name = btn.getAttribute('data-name')
-            if (btn) {
-              if (name === 'addMoney') {
-                action ? action.classList.remove('active') : ''
-                sumSaldo(userSelect, answer, contentPop)
-              } else if (name === 'restMoney') {
-                action ? action.classList.remove('active') : ''
-                restSaldo(userSelect.saldo, answer, contentPop)
-              }
-            }
-          })
-        })
-        if (name === 'query') {
-          content.classList.remove('active')
-          contentPop.classList.add('active')
-          querySaldo(userSelect.saldo, answer)
-        } else if (name === 'add') {
-          content.classList.remove('active')
-          contentPop.classList.add('active')
-          action.classList.add('active')
-        } else if (name === 'rest') {
-          content.classList.remove('active')
-          contentPop.classList.add('active')
-          action.classList.add('active')
-        }
-      })
-    })
   }
   if (cancel || shadow) {
     const shadow = document.querySelector('.shadow')
@@ -122,5 +91,32 @@ document.addEventListener('click', (e) => {
     shadow.classList.remove('active')
     popUp.classList.remove('active')
     number ? number.value = '' : ''
+  }
+  if (selectAction) {
+    const name = selectAction.getAttribute('data-name')
+    const contentOld = document.querySelector('.content.active')
+    const content = document.querySelector(`.content[data-name="${name}"]`)
+    const action = content.querySelector('.action')
+    const answer = content.querySelector('.pop-answer')
+
+    contentOld.classList.remove('active')
+    content.classList.add('active')
+    action ? action.classList.add('active') : ''
+
+    if(name === 'query'){
+      querySaldo(userSelect.saldo, answer)
+    }
+  }
+  if (btnsAnswers) {
+    const contentOld = document.querySelector('.content.active')
+    const name = btnsAnswers.getAttribute('data-name')
+    const answer = contentOld.querySelector('.pop-answer')
+    if (name === 'addMoney') {
+      contentOld ? contentOld.classList.remove('active') : ''
+      sumSaldo(userSelect, answer, contentOld)
+    } else if (name === 'restMoney') {
+      contentOld ? contentOld.classList.remove('active') : ''
+      restSaldo(userSelect, answer, contentOld)
+    }
   }
 })

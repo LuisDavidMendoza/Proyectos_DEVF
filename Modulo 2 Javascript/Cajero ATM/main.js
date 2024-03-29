@@ -42,9 +42,7 @@ document.addEventListener('click', (e) => {
                       <h2>Saldo Actual<h2>
                       <h3>${saldoActual.saldo}</h3>`
     }
-    action.classList.remove('active')
-    content.classList.add('active')
-    answer.classList.add('active')
+    showHidden(content, answer, action)
     answer.innerHTML = saldoTotal
   }
   restSaldo = (saldoActual, answer, content) => {
@@ -54,6 +52,8 @@ document.addEventListener('click', (e) => {
     const total = saldoActual.saldo
     if (saldoActual.saldo === 0) {
       saldoTotal = `<h3>Saldo insuficiente</h3>`
+    } else if(saldoNuevo === 0){
+      saldoTotal = `<h3>Ingresa un monto a retirar</h3>`
     } else {
       saldoActual.saldo -= saldoNuevo
       saldoTotal = `<h1>Saldo Anterior<h1>
@@ -65,6 +65,11 @@ document.addEventListener('click', (e) => {
     content.classList.add('active')
     answer.classList.add('active')
     answer.innerHTML = saldoTotal
+  }
+  showHidden = (action, content, contentOld) => {
+    action ? action.classList.add('active') : ''
+    content ? content.classList.add('active') : ''
+    contentOld ? contentOld.classList.remove('active') : ''
   }
   if (selectUsers) {
     const popUp = document.querySelector('.popup')
@@ -99,10 +104,7 @@ document.addEventListener('click', (e) => {
     const action = content.querySelector('.action')
     const answer = content.querySelector('.pop-answer')
 
-    contentOld.classList.remove('active')
-    content.classList.add('active')
-    action ? action.classList.add('active') : ''
-
+    showHidden(action, content, contentOld)
     if(name === 'query'){
       querySaldo(userSelect.saldo, answer)
     }
@@ -112,10 +114,10 @@ document.addEventListener('click', (e) => {
     const name = btnsAnswers.getAttribute('data-name')
     const answer = contentOld.querySelector('.pop-answer')
     if (name === 'addMoney') {
-      contentOld ? contentOld.classList.remove('active') : ''
+      showHidden('', '',contentOld)
       sumSaldo(userSelect, answer, contentOld)
     } else if (name === 'restMoney') {
-      contentOld ? contentOld.classList.remove('active') : ''
+      showHidden('','',contentOld)
       restSaldo(userSelect, answer, contentOld)
     }
   }

@@ -13,8 +13,8 @@ ejercicio1 = (arr) => {
             }
         })
     })
-    console.log(par)
-    console.log(impar)
+    console.log('Pares', par)
+    console.log('Impares',impar)
 }
 
 ejercicio2 = (arr) => {
@@ -30,6 +30,6 @@ ejercicio2 = (arr) => {
         // }
     })
     cola.log()
-    console.log(cita)
-    console.log(sinCita)
+    console.log('Con cita', cita)
+    console.log('Sin cita', sinCita)
 }

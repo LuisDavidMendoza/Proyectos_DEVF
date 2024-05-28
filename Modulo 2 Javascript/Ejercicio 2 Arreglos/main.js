@@ -9,7 +9,7 @@ document.addEventListener('click', (event) => {
         let min = 1;
         let max = 100;
         for (let i = 0; i <= 9; i++) {
-            let numberRandom = Math.floor(Math.random() * (max - min + 1)) + min;
+            let numberRandom = Math.floor(Math.random() * max) + min;
             emptyArray.push(numberRandom)
         }
         console.log('Array Random', emptyArray)

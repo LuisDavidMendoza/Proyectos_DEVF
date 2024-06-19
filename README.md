@@ -27,4 +27,5 @@ Este index tendrá la ruta para cada módulo y/o ejercicio. Se actualizará el i
   ### 3.1.- [Ejercicio 1: Pilas](https://github.com/LuisDavidMendoza/Proyectos_DEVF/tree/main/Modulo%203%20Computer%20Science/Ejercicio%201%3A%20Pilas)
   ### 3.2.- [Ejercicio 2: Colas](https://github.com/LuisDavidMendoza/Proyectos_DEVF/tree/main/Modulo%203%20Computer%20Science/Ejercicio%202%3A%20Cola)
   ### 3.3.- [Ejercicio 3: Listas enlazadas](https://github.com/LuisDavidMendoza/Proyectos_DEVF/tree/main/Modulo%203%20Computer%20Science/Ejercicio%203%3A%20Listas%20enlazadas)
+  ### 3.5.- [Ejercicio 5: Búsqueda (Secuencial y Binaria)](https://github.com/LuisDavidMendoza/Proyectos_DEVF/tree/main/Modulo%203%20Computer%20Science/Ejercicio%205%3A%20B%C3%BAsqueda%20(Secuencial%20y%20Binaria))
   ### 3.6.- [Ejercicio 6: Ordenamiento](https://github.com/LuisDavidMendoza/Proyectos_DEVF/tree/main/Modulo%203%20Computer%20Science/Ejercicio%206%3A%20Ordenamiento)

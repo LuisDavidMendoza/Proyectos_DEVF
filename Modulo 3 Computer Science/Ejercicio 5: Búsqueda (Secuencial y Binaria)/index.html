@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda (Secuencial y Binaria)</title>
+    <script src="main.js"></script>
+</head>
+
+<body>
+</body>
+<script>
+    const newContact = new Contacto()
+    const list = new ListaContactos()
+
+    const names = ['luis', 'karla', 'pepe']
+    const surnames = ['martinez', 'garcia', 'hernandez']
+    const numberPhones = ['1111111111', '2222222222', '3333333333']
+
+    for (let i = 0; i < names.length; i++) {
+        let newContact = new Contacto(names[i], surnames[i], numberPhones[i]);
+        newContact.addContactInListContacts(list);
+    }
+    list.searchName('pepe')
+
+    numberMoreRepeat([3, 6, 1, 8, 2, 3, 6, 3, 2, 5, 6])
+    searchLetters([8, 'e', 7, 2, 'a', 'd', 'f', 2, 3, 1, 4, 3])
+    searchBigNumber([1, 4, 7, 2, 4, 1, 9, 4, 0, 2, 4, 5, 12])
+    searchSmallNumber([1, 4, 5, -1, -7, 2, 3, 9])
+</script>
+
+</html>

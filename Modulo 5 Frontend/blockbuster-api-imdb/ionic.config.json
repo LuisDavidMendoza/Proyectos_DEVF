@@ -1,0 +1,7 @@
+{
+  "name": "Blockbuster API IMDB",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

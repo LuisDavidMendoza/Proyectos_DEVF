@@ -1,0 +1,10 @@
+ion-grid{
+    --ion-grid-columns: 2;
+    --ion-grid-width: fixed;
+}
+.list-card{
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

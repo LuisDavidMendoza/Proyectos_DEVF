@@ -1,0 +1,8 @@
+.navbar-style{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    text-align: center;
+    padding-top: 50vh;
+    z-index: 99;
+}

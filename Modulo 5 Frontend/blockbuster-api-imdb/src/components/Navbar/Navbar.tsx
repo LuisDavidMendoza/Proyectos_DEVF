@@ -14,19 +14,19 @@ const Navbar: React.FC = () => {
     <div className="navbar-style">
       <Link to={"/home"}>
         <IonButton color={bgcolor}>
-          <IonIcon icon={homeOutline}></IonIcon>
+          <IonIcon icon={homeOutline} size="large"></IonIcon>
         </IonButton>
       </Link>
       <Link to={"/search"}>
         <IonButton color={bgcolor}>
-          <IonIcon icon={searchOutline}></IonIcon>
+          <IonIcon icon={searchOutline} size="large"></IonIcon>
         </IonButton>
       </Link>
-      <Link to={"/mylist"}>
+      {/* <Link to={"/mylist"}>
         <IonButton color={bgcolor}>
           <IonIcon icon={addOutline}></IonIcon>
         </IonButton>
-      </Link>
+      </Link> */}
     </div>
     </>
   );

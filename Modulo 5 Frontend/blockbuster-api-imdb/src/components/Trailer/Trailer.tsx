@@ -2,15 +2,16 @@ import {
   IonCard,
   IonCardContent,
   IonCardHeader,
-  IonCardSubtitle,
   IonCardTitle,
   IonCol,
   IonGrid,
   IonImg,
   IonRow,
+  IonText,
+  IonContent,
 } from "@ionic/react";
 import { useEffect, useState } from "react";
-import "./Tralier.css"
+import "./Trailer.css";
 
 export type Props = {
   adult: boolean;
@@ -46,16 +47,18 @@ export type Props = {
   vote_count: number;
 };
 
-const Trailer: React.FC<{ idMovie: number | undefined }> = ({ idMovie }) => {
+const Trailer: React.FC<{ idMovie: number | undefined; apiKey: string }> = ({
+  idMovie,
+  apiKey,
+}) => {
   const [getMovieId, setMovieId] = useState<Props>();
 
   useEffect(() => {
-    console.log(idMovie)
     idMovie && getDataMovieId(idMovie);
   }, [idMovie]);
   const getDataMovieId = (idMovie: number) => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${idMovie}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=es-MX`
+      `https://api.themoviedb.org/3/movie/${idMovie}?api_key=${apiKey}&language=es-MX`
     )
       .then((res) => res.json())
       .then((data) => setMovieId(data));
@@ -75,29 +78,53 @@ const Trailer: React.FC<{ idMovie: number | undefined }> = ({ idMovie }) => {
   return (
     <>
       {getMovieId && (
-        <div>
-          <IonCard>
-            <IonCardHeader>
-            </IonCardHeader>
-
-            <IonCardContent>
-              <IonGrid>
-                <IonRow>
-                  <IonCol>
-                    <IonCardTitle>{getMovieId.title}</IonCardTitle>
-                    {getMovieId.overview}
-                  </IonCol>
-                  <IonCol>
-                    <IonImg src={`https://image.tmdb.org/t/p/original${getMovieId.backdrop_path}`} />
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonCardContent>
-          </IonCard>
+        <div className="trailer">
+          <IonContent fullscreen>
+            {/* <IonCard>
+              <IonCardContent
+                style={{
+                  backgroundImage: `url(https://image.tmdb.org/t/p/original${getMovieId.backdrop_path})`,
+                  backgroundRepeat: 'no repeat',
+                  width: '100%',
+                  height: '100%'
+                }}
+              >
+                <IonCardTitle>
+                  <h1>{getMovieId.title}</h1>
+                </IonCardTitle>
+                <IonText>
+                  {getMovieId.overview
+                    ? getMovieId.overview
+                    : "Sin descripción"}
+                </IonText>
+              </IonCardContent>
+            </IonCard> */}
+            <IonCard>
+              <IonCardContent>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol className="trailer-description">
+                      <IonCardTitle>
+                        <h1>{getMovieId.title}</h1>
+                      </IonCardTitle>
+                      <IonText>
+                        {getMovieId.overview
+                          ? getMovieId.overview
+                          : "Sin descripción"}
+                      </IonText>
+                    </IonCol>
+                    <IonCol className="trailer-content-img">
+                      <IonImg
+                        src={`https://image.tmdb.org/t/p/original${getMovieId.backdrop_path}`}
+                      />
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+              </IonCardContent>
+            </IonCard>
+          </IonContent>
         </div>
       )}
-
-      {/* <IonImg src={`https://image.tmdb.org/t/p/original${movie ? movie.backdrop_path : ""}`}/> */}
     </>
   );
 };

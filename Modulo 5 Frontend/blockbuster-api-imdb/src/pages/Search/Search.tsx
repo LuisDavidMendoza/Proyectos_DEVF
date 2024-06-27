@@ -2,6 +2,7 @@ import {
   IonCol,
   IonContent,
   IonGrid,
+  IonImg,
   IonItem,
   IonList,
   IonRow,
@@ -9,49 +10,65 @@ import {
 } from "@ionic/react";
 import Navbar from "../../components/Navbar/Navbar";
 import MovieList from "../../components/MovieList/MovieList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { movieData } from "../../components/Carousel/Carousel";
+import "./Search.css";
+
 const Search: React.FC = () => {
-  const data = [
-    'Amsterdam',
-    'Buenos Aires',
-    'Cairo',
-    'Geneva',
-    'Hong Kong',
-    'Istanbul',
-    'London',
-    'Madrid',
-    'New York',
-    'Panama City',
-  ];
-  const [results, setResults] = useState([...data]);
+  const [movieList, setMovieList] = useState<movieData[]>([]);
+  const [results, setResults] = useState<movieData[]>([]);
+  const apiKey = import.meta.env.VITE_APP_TMDB_API_KEY;
+
+  useEffect(() => {
+    getDataMovie();
+  }, []);
+  // useEffect(() => {
+  //   console.log(movieList);
+  // }, [movieList]);
 
   const handleInput = (ev: Event) => {
-    let query = '';
+    let query = "";
     const target = ev.target as HTMLIonSearchbarElement;
     if (target) query = target.value!.toLowerCase();
+    setResults(
+      movieList.filter((d) => d.title.toLowerCase().indexOf(query) > -1)
+    );
+  };
 
-    setResults(data.filter((d) => d.toLowerCase().indexOf(query) > -1));
+  const getDataMovie = () => {
+    fetch(
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&language=es-MX`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setMovieList(data.results);
+        setResults(data.results);
+      });
   };
 
   return (
     <>
       <IonContent fullscreen>
         <Navbar />
-        <IonGrid>
+        <IonGrid className="searchContent">
           <IonRow>
-            <IonCol size="auto">
-              <IonSearchbar onIonInput={(ev) => handleInput(ev)}/>
+            <IonCol size="1">
+              <IonSearchbar onIonInput={(ev) => handleInput(ev)} />
             </IonCol>
-          </IonRow>
 
-          <IonRow>
             <IonCol>
-              <IonList>
-                {results.map((result) => (
-                  <IonItem>{result}</IonItem>
-                ))}
-              </IonList>
-              {/* <MovieList /> */}
+                <IonGrid className="galleryMovies">
+                  <IonRow>
+                {results.map((result: movieData, index) => (
+                    <IonCol key={index} size="1">
+                        <IonImg
+                          // key={result.id}
+                          src={`https://image.tmdb.org/t/p/original${result.poster_path}`}
+                        />
+                      </IonCol>
+                      ))}
+                </IonRow>
+                </IonGrid>
             </IonCol>
           </IonRow>
         </IonGrid>

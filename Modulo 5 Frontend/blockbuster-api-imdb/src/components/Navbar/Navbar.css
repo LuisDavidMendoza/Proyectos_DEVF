@@ -3,6 +3,7 @@
     flex-direction: column;
     position: fixed;
     text-align: center;
-    padding-top: 50vh;
     z-index: 99;
+    padding: 50vh 2vw;
+    gap: 2vh;
 }

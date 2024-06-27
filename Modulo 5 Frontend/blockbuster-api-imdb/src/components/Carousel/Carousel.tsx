@@ -1,14 +1,16 @@
 import { IonImg, IonTitle } from "@ionic/react";
 import { useEffect, useState } from "react";
 
-import { Navigation, Pagination, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, Mousewheel } from "swiper";
 
 //Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+
+import "./Carousel.css"
 
 export type movieData = {
   adult: boolean;
@@ -27,7 +29,7 @@ export type movieData = {
   vote_count: number;
 };
 
-const Carousel: React.FC<{type: string, title: string, changeThriller: (id: number) => void}> = ({type, title, changeThriller}) => {
+const Carousel: React.FC<{type: string, title: string, changeThriller: (id: number) => void, apiKey: string}> = ({type, title, changeThriller, apiKey}) => {
   const [movieList, setMovieList] = useState([]);
 
   useEffect(() => {
@@ -35,26 +37,36 @@ const Carousel: React.FC<{type: string, title: string, changeThriller: (id: numb
   }, []);
   const getDataMovie = (type: string) => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${type}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=es-MX`
+      `https://api.themoviedb.org/3/movie/${type}?api_key=${apiKey}&language=es-MX`
     )
       .then((res) => res.json())
       .then((data) => setMovieList(data.results));
   };
   // console.log(movieList)
+
+  const mySwiperConfig = {
+    mousewheel: {
+      enabled: true,
+      forceToAxis: true,
+    }
+  }
+
   return (
-    <div>
-      <IonTitle>{title}</IonTitle>
+    <div className="carousel-content">
+      <IonTitle class="carousel-title">{title}</IonTitle>
         <Swiper
-          modules={[Navigation, Pagination, Scrollbar]}
-          spaceBetween={10}
+          modules={[Navigation, Pagination, Scrollbar, Mousewheel]}
+          spaceBetween={30}
           slidesPerView={3}
-          navigation={true}
+          navigation={false}
           loop={true}
+          {...mySwiperConfig}
+          
           >
           {movieList &&
             movieList.map((movie: movieData) => (
               <SwiperSlide key={movie.id} onClick={() => changeThriller(movie.id)}>
-                <IonImg src={`https://image.tmdb.org/t/p/original${movie ? movie.poster_path : ""}`}/>
+                <IonImg className="carousel-img" src={`https://image.tmdb.org/t/p/original${movie && movie.poster_path}`}/>
               </SwiperSlide>
             ))}
           </Swiper>

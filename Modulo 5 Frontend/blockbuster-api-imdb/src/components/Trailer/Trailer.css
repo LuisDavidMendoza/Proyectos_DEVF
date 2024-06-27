@@ -1,0 +1,26 @@
+.trailer{
+    min-height: 46vh;
+}
+.trailer ion-text{
+    text-align: center;
+    font-size: 1.5em;
+}
+.trailer ion-img{
+    /* width: 20vw; */
+    height: 20vh;
+}
+
+.trailer-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 40px;
+}
+
+.trailer-content-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

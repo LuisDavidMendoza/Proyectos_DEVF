@@ -80,46 +80,25 @@ const Trailer: React.FC<{ idMovie: number | undefined; apiKey: string }> = ({
       {getMovieId && (
         <div className="trailer">
           <IonContent fullscreen>
-            {/* <IonCard>
-              <IonCardContent
-                style={{
-                  backgroundImage: `url(https://image.tmdb.org/t/p/original${getMovieId.backdrop_path})`,
-                  backgroundRepeat: 'no repeat',
-                  width: '100%',
-                  height: '100%'
-                }}
-              >
-                <IonCardTitle>
-                  <h1>{getMovieId.title}</h1>
-                </IonCardTitle>
-                <IonText>
-                  {getMovieId.overview
-                    ? getMovieId.overview
-                    : "Sin descripción"}
-                </IonText>
-              </IonCardContent>
-            </IonCard> */}
             <IonCard>
               <IonCardContent>
-                <IonGrid>
-                  <IonRow>
-                    <IonCol className="trailer-description">
-                      <IonCardTitle>
-                        <h1>{getMovieId.title}</h1>
-                      </IonCardTitle>
-                      <IonText>
-                        {getMovieId.overview
-                          ? getMovieId.overview
-                          : "Sin descripción"}
-                      </IonText>
-                    </IonCol>
-                    <IonCol className="trailer-content-img">
-                      <IonImg
-                        src={`https://image.tmdb.org/t/p/original${getMovieId.backdrop_path}`}
-                      />
-                    </IonCol>
-                  </IonRow>
-                </IonGrid>
+                <div
+                  className="trailer-background-img"
+                  style={{
+                    backgroundImage: `linear-gradient(to right, black 30%, transparent 100%), url(https://image.tmdb.org/t/p/original${getMovieId.backdrop_path})`,
+                  }}
+                >
+                  <div className="trailer-description">
+                    <IonCardTitle>
+                      <h1>{getMovieId.title}</h1>
+                    </IonCardTitle>
+                    <IonText>
+                      {getMovieId.overview
+                        ? getMovieId.overview
+                        : "Sin descripción"}
+                    </IonText>
+                  </div>
+                </div>
               </IonCardContent>
             </IonCard>
           </IonContent>

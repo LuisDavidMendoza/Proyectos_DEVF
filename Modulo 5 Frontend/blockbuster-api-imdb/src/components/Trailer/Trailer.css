@@ -1,16 +1,34 @@
 .trailer{
-    min-height: 46vh;
+    height: 70vh;
+}
+.trailer ion-card{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+.trailer ion-card-content{
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 .trailer ion-text{
-    text-align: center;
-    font-size: 1.5em;
+    text-align: start;
+    font-size: 2em;
 }
-.trailer ion-img{
-    /* width: 20vw; */
-    height: 20vh;
+.trailer-background-img{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background-size: 100vw 90vh;
+    background-repeat: no-repeat;
 }
 
 .trailer-description{
+    transform: translateX(4vw);
+    width: 50vw;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,9 +36,8 @@
     text-align: center;
     gap: 40px;
 }
-
-.trailer-content-img{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.trailer-description ion-card-title h1{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
 }

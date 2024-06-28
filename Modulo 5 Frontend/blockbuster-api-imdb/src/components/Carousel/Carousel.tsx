@@ -2,7 +2,7 @@ import { IonImg, IonTitle } from "@ionic/react";
 import { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, Mousewheel } from "swiper";
+import { Navigation, Scrollbar, Mousewheel, Keyboard, Controller } from "swiper";
 
 //Swiper styles
 import "swiper/css";
@@ -42,26 +42,32 @@ const Carousel: React.FC<{type: string, title: string, changeThriller: (id: numb
       .then((res) => res.json())
       .then((data) => setMovieList(data.results));
   };
-  // console.log(movieList)
 
-  const mySwiperConfig = {
-    mousewheel: {
-      enabled: true,
-      forceToAxis: true,
-    }
-  }
+  // console.log(movieList)
+  // console.log(activeIndex)
+
+  // const mySwiperConfig = {
+  //   mousewheel: {
+  //     enabled: true,
+  //     forceToAxis: true,
+  //   }
+  // }
 
   return (
     <div className="carousel-content">
       <IonTitle class="carousel-title">{title}</IonTitle>
         <Swiper
-          modules={[Navigation, Pagination, Scrollbar, Mousewheel]}
+          modules={[Navigation, Scrollbar, Mousewheel, Keyboard, Controller]}
           spaceBetween={30}
-          slidesPerView={3}
+          slidesPerView={5}
+          keyboard ={false}
           navigation={false}
           loop={true}
-          {...mySwiperConfig}
-          
+          mousewheel={{
+            forceToAxis: true,
+          }}
+          // {...mySwiperConfig}
+          // controller={}
           >
           {movieList &&
             movieList.map((movie: movieData) => (

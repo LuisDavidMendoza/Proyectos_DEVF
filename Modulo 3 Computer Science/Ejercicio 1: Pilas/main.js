@@ -1,3 +1,4 @@
+//Retorna tantos elementos como diga el identificador (segundo parámetro)
 ejercicio1 = (arr, identificador) => {
     const pila = new Pila(arr)
     let temporal = []
@@ -9,7 +10,7 @@ ejercicio1 = (arr, identificador) => {
     }
     pila.log()
 }
-
+//Remplazar valores
 ejercicio2 = (arr, remplazar, identificador) => {
     const pila = new Pila(arr)
     do {
@@ -20,7 +21,7 @@ ejercicio2 = (arr, remplazar, identificador) => {
     } while (pila.length() > 0)
     pila.log()
 }
-
+//Muestra el camino recorrido tanto de ida como de vuelta
 ejercicio3 = (arr) => {
     const pila = new Pila(arr)
     let temporal = []
@@ -30,6 +31,7 @@ ejercicio3 = (arr) => {
     }
     console.log(temporal)
 }
+//Retirar contenedores para sacar el contenedor específico y volver a colocar los contenedores a su lugar
 ejercicio4 = (arr, identificador) => {
     const pila = new Pila(arr)
     let temporal = []

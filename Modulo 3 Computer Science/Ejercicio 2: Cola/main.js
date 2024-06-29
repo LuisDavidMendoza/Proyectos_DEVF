@@ -1,3 +1,4 @@
+//Separar los colores en pares e impares, según su posición o índice del color
 ejercicio1 = (arr) => {
     const cola = new Cola(arr)
     let par = [],
@@ -16,7 +17,7 @@ ejercicio1 = (arr) => {
     console.log('Pares', par)
     console.log('Impares',impar)
 }
-
+//Separar o retirar de la fila quien no tenga ticket
 ejercicio2 = (arr) => {
     const cola = new Cola(arr)
     let cita = [],

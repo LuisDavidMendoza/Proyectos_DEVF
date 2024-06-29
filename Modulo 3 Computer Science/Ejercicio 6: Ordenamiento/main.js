@@ -1,7 +1,8 @@
+//Ordenar por número descendente
 function ejercicio1(arreglo) {
     return console.log(arreglo.sort((a, b) => b - a))
 }
-
+//Ordenar lista de caracteres según su valor decima ASCII
 function ejercicio2(arreglo) {
     return console.log(arreglo.sort())
 }
@@ -34,11 +35,11 @@ class Salon {
         console.log(alumno.alumnos.sort((a,b) => b.promedio - a.promedio))
     }
 }
-
+//Ordenar palabras de menor número a mayor
 function ejercicio4(arreglo) {
     return console.log(arreglo.sort((a, b) => a.length - b.length))
 }
-
+//Ordenar coordenadas a partir del punto más cercano a 0,0
 function ejercicio5(arreglo) {
     return console.log(arreglo.sort((a, b) => Math.hypot(a[0], a[1]) - Math.hypot(b[0], b[1])))
 }

@@ -31,5 +31,5 @@ Este index tendrá la ruta para cada módulo y/o ejercicio. Se actualizará el i
   ### 3.6.- [Ejercicio 6: Ordenamiento](https://github.com/LuisDavidMendoza/Proyectos_DEVF/tree/main/Modulo%203%20Computer%20Science/Ejercicio%206%3A%20Ordenamiento)
 ## 5.- [Frontend](https://github.com/LuisDavidMendoza/Proyectos_DEVF/tree/main/Modulo%205%20Frontend)
   ### 5.1.- [Proyecto IMDb API](https://github.com/LuisDavidMendoza/Proyectos_DEVF/tree/main/Modulo%205%20Frontend/blockbuster-api-imdb)
-  Se necesita la API Key de TMDB (https://www.themoviedb.org/?language=es) y declararla en el archivo .env; La variable se debe de declarar como **_ VITE_APP_TMDB_API_KEY _**
+  Se necesita la API Key de TMDB (https://www.themoviedb.org/?language=es) y declararla en el archivo .env; La variable se debe de declarar como __*VITE_APP_TMDB_API_KEY*__
   

@@ -21,8 +21,9 @@
     flex-direction: column;
     justify-content: center;
     position: relative;
-    background-size: 100vw 90vh;
+    background-size: contain;
     background-repeat: no-repeat;
+    background-position: right;
 }
 
 .trailer-description{

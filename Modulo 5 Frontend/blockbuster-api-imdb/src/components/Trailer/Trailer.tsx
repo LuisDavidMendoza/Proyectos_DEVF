@@ -85,7 +85,7 @@ const Trailer: React.FC<{ idMovie: number | undefined; apiKey: string }> = ({
                 <div
                   className="trailer-background-img"
                   style={{
-                    backgroundImage: `linear-gradient(to right, black 30%, transparent 100%), url(https://image.tmdb.org/t/p/original${getMovieId.backdrop_path})`,
+                    backgroundImage: `linear-gradient(to right, black 40%, transparent 100%), url(https://image.tmdb.org/t/p/original${getMovieId.backdrop_path})`,
                   }}
                 >
                   <div className="trailer-description">
